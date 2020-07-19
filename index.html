@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShoppingListCheckOff">
+<head>
+  <meta charset="UTF-8">
+
+</head>
+<body>
+  <div class="container">
+    <header class="row">
+      <div class="col-md-12">
+        <h1>Shopping Plan</h1>
+
+      </div>
+    </header>
+    <div class="row">
+      <div class="col-md-6">
+        <div ng-controller="ToBuyShoppingController as listToBuy">
+          <h2>To Buy</h2>
+          <ol>
+            <li ng-repeat="item in listToBuy.items;">
+              {{ item.quantity }} of {{ item.name }}
+              <button class="btn btn-primary btn-xs" ng-click="listToBuy.checkOff($index);">Buy</button>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div ng-controller="AlreadyBoughtShoppingController as listBought">
+          <h2>Already Bought</h2>
+          <ol>
+            <li ng-repeat="item in listBought.items;">{{ item.quantity }} of {{ item.name }}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 300px;"></div>
+
+
+  </div>
+    <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
